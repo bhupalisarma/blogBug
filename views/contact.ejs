@@ -1,6 +1,24 @@
 <%- include('partials/header'); -%>
 
-<h1>Contact Us</h1>
-<p> Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Non diam phasellus vestibulum lorem sed. Platea dictumst quisque sagittis purus sit. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Mauris in aliquam sem fringilla. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Amet massa vitae tortor condimentum lacinia quis vel eros. Enim ut tellus elementum sagittis vitae. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+        <h1>Contact Us</h1>
+        <p> Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Dictumst vestibulum rhoncus est
+                pellentesque elit ullamcorper. Non diam phasellus vestibulum lorem sed. Platea dictumst quisque sagittis
+                purus sit. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Mauris in aliquam sem
+                fringilla. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Amet massa vitae tortor
+                condimentum lacinia quis vel eros. Enim ut tellus elementum sagittis vitae. Mauris ultrices eros in
+                cursus turpis massa tincidunt dui.
+        </p>
 
-<%- include('partials/footer'); -%>
+        <br>
+        <form action="/contact" method="post">
+                <div class="form-floating">
+                        <input type="email" name="email" class="form-control bottom" id="floatingInput"
+                                placeholder="Email" />
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary btn-sm">Send</button>
+        </form>
+
+        <br>
+
+        <%- include('partials/footer'); -%>
