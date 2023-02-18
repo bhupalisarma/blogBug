@@ -9,7 +9,7 @@ const https = require("https");
 const request = require("request");
 require("dotenv").config();
 const mongoose = require("mongoose");
-mongoose.set('strictQuery', false);
+mongoose.set("strictQuery", false);
 
 const app = express();
 const apiKey = process.env.API_KEY;
@@ -19,41 +19,28 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-
-
 // mongoDB starts
 
-mongoose.connect("mongodb://localhost:27017/blogDB", { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://admin-bhupali:test123@cluster0.crshvou.mongodb.net/blogDB", { useNewUrlParser: true });
 
 const postSchema = {
-
 	title: String,
 	author: String,
-	content: String
-
+	content: String,
 };
 
 const Post = mongoose.model("Post", postSchema);
 
-
 // mongoDB ends
-
 
 var posts = [];
 
 //  navbar starts
 
 app.get("/", function (req, res) {
-
 	Post.find({}, function (err, posts) {
-
 		res.render("home", { posts: posts });
-
-	})
-
-
-
-	
+	});
 });
 
 app.get("/contact", function (req, res) {
@@ -69,17 +56,15 @@ app.get("/compose", function (req, res) {
 });
 
 app.post("/compose", function (req, res) {
-
 	const post = new Post({
 		title: req.body.postTitle,
-		author:req.body.postAuthor,
-		content: req.body.postBody
+		author: req.body.postAuthor,
+		content: req.body.postBody,
 	});
 
 	post.save();
 
 	res.redirect("/");
-
 });
 
 app.get("/sucess", function (req, res) {
@@ -93,7 +78,6 @@ app.get("/failure", function (req, res) {
 
 // publish starts
 
-
 app.post("/compose", function (req, res) {
 	const post = {
 		title: req.body.postTitle,
@@ -105,30 +89,16 @@ app.post("/compose", function (req, res) {
 	res.redirect("/");
 });
 
-// app.get("/posts/:postName", function (req, res) {
-
-// 	const requestedTitle = _.lowerCase(req.params.postName);
-
-// 	Post.findOne({ title: requestedTitle }, function (post) {
-// 			res.render("post", {
-// 				title: post.title,
-// 				author: post.author,
-// 				content: post.content,
-// 			});
-// 	});
-
-// });
-
 app.get("/posts/:postId", function (req, res) {
 	const requestedPostId = req.params.postId;
 
-	Post.findOne({ _id: requestedPostId }, function (err, post) { 
+	Post.findOne({ _id: requestedPostId }, function (err, post) {
 		res.render("post", {
 			title: post.title,
 			author: post.author,
 			content: post.content,
 		});
-	})
+	});
 });
 
 // publish ends
