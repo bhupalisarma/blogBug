@@ -11,6 +11,11 @@ The front-end was built with EJs.On the back-end, Node.js framework (Express) is
 - Node JS (Express)
 - MongoDB (Mongoose)
 
+# Start command
+
+- npm install
+- node app.js
+
 # Images
 ![Screenshot 2023-02-18 220032](https://user-images.githubusercontent.com/85697658/219878208-8659d239-cb91-4a4f-a3cd-47966a66f563.png)
 ![Screenshot 2023-02-18 220425](https://user-images.githubusercontent.com/85697658/219878217-d5b10224-74c4-4ec5-9966-60d70d0237f2.png)
